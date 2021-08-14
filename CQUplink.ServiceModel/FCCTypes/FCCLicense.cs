@@ -23,11 +23,10 @@ namespace CQUplink.ServiceModel.FCCTypes
     {
         public static License ToType(this FCCLicense value)
         {
-            var splitString = value.LicName.Split(",");
             return new License()
             {
                 CallSign = value.Callsign,
-                FRN = long.Parse(value.FRN),
+                FRN = !value.FRN.IsNullOrEmpty() ? long.Parse(value.FRN) : null,
                 Status = new LicenseStatus() {StatusName = value.StatusDesc},
                 ExpiredDate = value.ExpiredDate,
                 Licensee = new Licensee()
@@ -35,7 +34,7 @@ namespace CQUplink.ServiceModel.FCCTypes
                     Name = value.LicName
                 },
                 LicenseDetailUrl = value.LicDetailURL,
-                LicenseId = value.LicenseID
+                LicenseId = value.LicenseID,
             };
         }
     }

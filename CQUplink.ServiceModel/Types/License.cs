@@ -15,7 +15,7 @@ namespace CQUplink.ServiceModel.Types
 
         [Reference] public Licensee Licensee { get; set; }
 
-        public long FRN { get; set; }
+        public long? FRN { get; set; }
         public string CallSign { get; set; }
 
         [References(typeof(LicenseStatus))] public long LicenseStatusId { get; set; }
