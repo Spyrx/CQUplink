@@ -10,7 +10,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\ServiceStack.OrmLite.Sqlite.Source.csproj"/>
-        <ProjectReference Include="..\..\ServiceStack.OrmLite\src\ServiceStack.OrmLite.SqlServer\ServiceStack.OrmLite.SqlServer.Source.csproj"/>
         <ProjectReference Include="..\..\ServiceStack.OrmLite\src\ServiceStack.OrmLite\ServiceStack.OrmLite.Source.csproj"/>
         <ProjectReference Include="..\..\ServiceStack\src\ServiceStack.Api.OpenApi\ServiceStack.Api.OpenApi.Source.csproj"/>
         <ProjectReference Include="..\..\ServiceStack\src\ServiceStack.Mvc\ServiceStack.Mvc.Source.csproj"/>
