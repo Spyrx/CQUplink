@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\ServiceStack\src\ServiceStack\ServiceStack.Source.csproj"/>
+        <ProjectReference Include="..\CQUplink.ServiceModel\CQUplink.ServiceModel.csproj"/>
+    </ItemGroup>
+
+</Project>
