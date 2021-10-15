@@ -11,4 +11,10 @@ namespace CQUplink.ServiceModel.FCCTypes
         public DateTime LastUpdate { get; set; }
         public List<FCCLicense> License { get; set; }
     }
+
+    public class FCCLicensesResponse
+    {
+        public string Status { get; set; }
+        public FCCLicenses Licenses { get; set; }
+    }
 }

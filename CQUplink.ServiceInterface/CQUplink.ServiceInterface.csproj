@@ -5,8 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\ServiceStack\src\ServiceStack\ServiceStack.Source.csproj"/>
-        <ProjectReference Include="..\CQUplink.ServiceModel\CQUplink.ServiceModel.csproj"/>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="RestSharp" Version="106.12.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\CQUplink.ServiceModel\CQUplink.ServiceModel.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using CQUplink.ServiceModel.Types;
-using ServiceStack;
 using License = CQUplink.ServiceModel.Types.License;
 
 namespace CQUplink.ServiceModel.FCCTypes
@@ -26,7 +25,7 @@ namespace CQUplink.ServiceModel.FCCTypes
             return new License()
             {
                 CallSign = value.Callsign,
-                FRN = !value.FRN.IsNullOrEmpty() ? long.Parse(value.FRN) : null,
+                FRN = !string.IsNullOrEmpty(value.FRN) ? long.Parse(value.FRN) : null,
                 Status = new LicenseStatus() {StatusName = value.StatusDesc},
                 ExpiredDate = value.ExpiredDate,
                 Licensee = new Licensee()

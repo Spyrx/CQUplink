@@ -1,5 +1,4 @@
-﻿using ServiceStack.DataAnnotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +16,7 @@ namespace CQUplink.ServiceModel.Types
 
     public class AuthorizationType
     {
-        [PrimaryKey] public byte Id { get; set; }
+        public byte Id { get; set; }
         public string AuthorizationName { get; set; }
     }
 }

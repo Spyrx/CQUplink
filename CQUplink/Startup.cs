@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using ServiceStack;
+using CQUplink.ServiceInterface;
 
 namespace CQUplink
 {
@@ -13,6 +13,10 @@ namespace CQUplink
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddControllers();
+            services.AddSwaggerGen();
+
+            services.AddSingleton<LicenseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,9 +31,18 @@ namespace CQUplink
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CQUplink API V1");
+                c.RoutePrefix = string.Empty;
+            });
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
             app.UseStaticFiles();
-
-            app.UseServiceStack(new AppHost());
         }
     }
 }

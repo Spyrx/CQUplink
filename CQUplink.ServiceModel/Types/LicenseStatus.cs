@@ -1,6 +1,4 @@
-﻿using ServiceStack.DataAnnotations;
-
-namespace CQUplink.ServiceModel.Types
+﻿namespace CQUplink.ServiceModel.Types
 {
     enum LicenseStatusEnum
     {
@@ -13,7 +11,7 @@ namespace CQUplink.ServiceModel.Types
 
     public class LicenseStatus
     {
-        [PrimaryKey] public byte Id { get; set; }
+        public byte Id { get; set; }
         public string StatusName { get; set; }
     }
 }
