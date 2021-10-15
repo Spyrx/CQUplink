@@ -1,5 +1,4 @@
-﻿using ServiceStack.DataAnnotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +18,7 @@ namespace CQUplink.ServiceModel.Types
 
     public class OperatorClass
     {
-        [PrimaryKey] public byte Id { get; set; }
+        public byte Id { get; set; }
         public string OperatorClassName { get; set; }
     }
 }

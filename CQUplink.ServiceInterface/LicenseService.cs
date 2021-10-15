@@ -4,20 +4,23 @@ using CQUplink.ServiceModel.Operations;
 using System.Linq;
 using CQUplink.ServiceModel.FCCTypes;
 using CQUplink.ServiceModel.Types;
-using ServiceStack;
+using System.Net.Http;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace CQUplink.ServiceInterface
 {
-    public class LicenseService : Service
+    public class LicenseService
     {
         public List<License> Get(CallsignLookupRequest request)
         {
-            var client = new JsonServiceClient(
-                $"http://data.fcc.gov/api/license-view/basicSearch/");
-            var response = client.Get<CallsignLookupResponse>($"/getLicenses?searchValue={request.SearchValue}" +
-                                                              $"&format=json");
+            var client = new RestClient();
+            client.BaseUrl = new Uri($"http://data.fcc.gov/api/license-view/basicSearch");
 
-            return new List<License>(response.Licenses.License.Select(q => q.ToType()));
+            var restRequest = new RestRequest($"getLicenses?searchValue={request.SearchValue}" + "&format=json", Method.GET);
+            var fccResponse = client.Execute<FCCLicensesResponse>(restRequest).Data;
+
+            return new List<License>(fccResponse.Licenses.License.Select(q => q.ToType()));
         }
     }
 }

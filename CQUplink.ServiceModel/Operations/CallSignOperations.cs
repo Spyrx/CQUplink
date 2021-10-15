@@ -1,10 +1,8 @@
 ﻿using CQUplink.ServiceModel.FCCTypes;
-using ServiceStack;
 
 namespace CQUplink.ServiceModel.Operations
 {
-    [Route("/v1/CallsignLookup/{searchValue}", "GET")]
-    public class CallsignLookupRequest : IReturn<CallsignLookupResponse>
+    public class CallsignLookupRequest
     {
         public string Format { get; set; } = "json";
         public string SearchValue { get; set; }
